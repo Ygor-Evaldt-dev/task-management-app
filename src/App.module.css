@@ -1,0 +1,6 @@
+.main {
+    display: grid;
+    align-content: flex-start;
+    max-width: 46rem;
+    margin: 0 auto;
+}

@@ -1,0 +1,29 @@
+.form {
+    display: flex;
+    gap: 0.5rem;
+    height: 3.375rem;
+    margin-top: calc(0rem - 3.375rem / 2);
+}
+
+.form>input {
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--gray-500);
+    color: var(--gray-100);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form>button[type=submit] {
+    border-radius: 8px;
+    padding: 1rem;
+    width: 5.625rem;
+    background-color: var(--blue-500);
+    color: var(--gray-100);
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.form>button[type=submit]:hover {
+    background-color: var(--blue-300);
+}
