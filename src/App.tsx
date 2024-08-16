@@ -7,9 +7,9 @@ import { FormCreateTask } from "./components/form-create-task/FormCreateTask";
 import { TaskType } from "./types/task.type";
 
 
-import clipboard from "./assets/images/clipboard.svg";
 import styles from "./App.module.css";
 import { TaskList } from "./components/task-list/TaskList";
+import { EmptyTasksInfo } from "./components/empty-tasks-info/EmptyTasksInfo";
 
 export function App() {
     const [tasks, setTasks] = useState([] as TaskType[]);
@@ -30,18 +30,11 @@ export function App() {
                 <FormCreateTask onCreateNewTask={onCreateNewTask} />
                 <article>
                     <header></header>
-                    {
-                        isNoTasks ? (
-                            <div className={styles.noTasksBox}>
-                                <img src={clipboard} alt="Icone de uma prancheta com algumas coisas escritas" />
-                                <div className={styles.infoBox}>
-                                    <p>Você ainda não tem tarefas cadastradas</p>
-                                    <p>Crie tarefas e organize seus itens a fazer</p>
-                                </div>
-                            </div>
-                        ) : (
-                            <TaskList tasks={tasks} />
-                        )}
+                    {isNoTasks ? (
+                        <EmptyTasksInfo />
+                    ) : (
+                        <TaskList tasks={tasks} />
+                    )}
                 </article>
 
             </main >

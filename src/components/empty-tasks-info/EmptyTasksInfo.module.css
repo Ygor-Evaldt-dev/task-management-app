@@ -1,0 +1,20 @@
+.emptyTasksBox {
+    border-top: 1px solid var(--gray-300);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 4rem 1.5rem;
+    color: var(--gray-300);
+    line-height: 1.4;
+    gap: 1rem;
+}
+
+.emptyTasksBox>.infoBox {
+    text-align: center;
+}
+
+.emptyTasksBox>.infoBox>p:first-of-type {
+    font-weight: bold;
+    font-size: 1.06rem;
+}
