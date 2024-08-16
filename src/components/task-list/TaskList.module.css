@@ -1,0 +1,15 @@
+.taskList.border {
+    border-top: 1px solid var(--gray-300);
+}
+
+.taskList>li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.taskList>li .task {
+    display: flex;
+    gap: 1rem;
+}
