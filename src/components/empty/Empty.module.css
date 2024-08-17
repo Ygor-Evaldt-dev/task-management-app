@@ -1,5 +1,5 @@
-.emptyTasksBox {
-    border-top: 1px solid var(--gray-300);
+.empty {
+    border-top: 1px solid var(--gray-400);
     display: grid;
     justify-content: center;
     align-items: center;
@@ -10,11 +10,11 @@
     gap: 1rem;
 }
 
-.emptyTasksBox>.infoBox {
+.empty>.infoBox {
     text-align: center;
 }
 
-.emptyTasksBox>.infoBox>p:first-of-type {
+.empty>.infoBox>p:first-of-type {
     font-weight: bold;
     font-size: 1.06rem;
 }

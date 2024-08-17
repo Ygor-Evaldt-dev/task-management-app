@@ -1,9 +1,9 @@
 import clipboard from "@/assets/images/clipboard.svg";
-import styles from "./EmptyTasksInfo.module.css";
+import styles from "./Empty.module.css";
 
-export function EmptyTasksInfo() {
+export function Empty() {
     return (
-        <div className={styles.emptyTasksBox}>
+        <div className={styles.empty}>
             <img src={clipboard} alt="Icone de uma prancheta com algumas coisas escritas" />
             <div className={styles.infoBox}>
                 <p>Você ainda não tem tarefas cadastradas</p>

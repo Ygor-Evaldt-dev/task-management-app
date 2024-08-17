@@ -28,16 +28,17 @@
 body {
     background-color: var(--gray-600);
     color: var(--gray-100);
+    -webkit-font-smoothing: antialiased;
 }
 
-button,
-a {
-    transition: 200ms linear;
-    cursor: pointer;
-}
-
-a {
-    text-decoration: none;
+body,
+input,
+textarea,
+button {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    border: none;
 }
 
 ul,
@@ -46,9 +47,18 @@ dl {
     list-style: none;
 }
 
-input,
-button {
-    border: none;
+h1,
+h2,
+h3,
+p {
+    word-break: break-word;
+}
+
+button,
+a {
+    transition: 200ms linear;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 :focus {

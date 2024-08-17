@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header aside {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.header aside p {
+    font-size: 0.875rem;
+    color: var(--blue-300);
+}
+
+.header aside:last-of-type p {
+    color: var(--purple-300);
+}
+
+.number {
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    padding: 0.25rem 0.65rem;
+    text-align: center;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}

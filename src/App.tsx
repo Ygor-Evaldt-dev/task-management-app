@@ -3,17 +3,26 @@ import { useState } from "react";
 
 import { Header } from "./components/header/Header";
 import { FormCreateTask } from "./components/form-create-task/FormCreateTask";
+import { Empty } from "./components/empty/Empty";
+import { TaskListHeader } from "./components/task-list-header/TaskListHeader";
+import { Task } from "./components/task/Task";
 
 import { TaskType } from "./types/task.type";
 
-
 import styles from "./App.module.css";
-import { TaskList } from "./components/task-list/TaskList";
-import { EmptyTasksInfo } from "./components/empty-tasks-info/EmptyTasksInfo";
+import { Trash } from "@phosphor-icons/react";
 
 export function App() {
     const [tasks, setTasks] = useState([] as TaskType[]);
+
     const isNoTasks = tasks.length === 0;
+
+    const tasksFinished = tasks.filter(task => task.isFinished === true);
+
+    function handleDeleteTask(id: string) {
+        const tasksWithoutDeleted = tasks.filter(task => task.id !== id);
+        setTasks(tasksWithoutDeleted);
+    }
 
     function onCreateNewTask(title: string) {
         setTasks([...tasks, {
@@ -28,12 +37,23 @@ export function App() {
             <Header />
             <main className={styles.main}>
                 <FormCreateTask onCreateNewTask={onCreateNewTask} />
-                <article>
-                    <header></header>
+                <article className={styles.tasks}>
+                    <TaskListHeader created={tasks.length} finished={tasksFinished.length} />
                     {isNoTasks ? (
-                        <EmptyTasksInfo />
+                        <Empty />
                     ) : (
-                        <TaskList tasks={tasks} />
+                        <ul className={styles.taskList}>
+                            {tasks.map(task => {
+                                return (
+                                    <li key={task.id}>
+                                        <Task task={task} />
+                                        <button onClick={() => handleDeleteTask(task.id)}>
+                                            <Trash size={22} weight="bold" />
+                                        </button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
                     )}
                 </article>
 

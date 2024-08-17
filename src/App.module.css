@@ -4,25 +4,34 @@
     max-width: 46rem;
     margin: 0 auto;
     gap: 4rem;
+    padding-bottom: 2rem;
 }
 
-.noTasksBox {
-    border-top: 1px solid var(--gray-300);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    padding: 4rem 1.5rem;
-    color: var(--gray-300);
-    line-height: 1.4;
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tasks>ul>li:not(:first-child) {
+    margin-top: 0.75rem;
+}
+
+.tasks>ul>li {
+    display: flex;
     gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--gray-400);
 }
 
-.noTasksBox>.infoBox {
-    text-align: center;
+.tasks>ul>li>button {
+    background-color: transparent;
+    color: var(--gray-300);
 }
 
-.noTasksBox>.infoBox>p:first-of-type {
-    font-weight: bold;
-    font-size: 1.06rem;
+.tasks>ul>li>button:hover {
+    color: var(--red-400);
 }

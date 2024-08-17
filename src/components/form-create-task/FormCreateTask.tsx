@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import styles from "./FormCreateTask.module.css";
+import { PlusCircle } from "@phosphor-icons/react";
 
 type FormCreateTaskProps = {
     onCreateNewTask: (title: string) => void
@@ -28,7 +29,10 @@ export function FormCreateTask({
                 value={newTaskText}
                 onChange={handleNewTaskText}
             />
-            <button type="submit">Criar</button>
+            <button type="submit">
+                Criar
+                <PlusCircle size={18} color="#f2f2f2" weight="bold" />
+            </button>
         </form>
     );
 }
