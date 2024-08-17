@@ -1,7 +1,7 @@
 .task {
     display: flex;
     gap: 0.75rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .task p {

@@ -10,8 +10,8 @@ export function Task({
 }: TaskProps) {
     return (
         <div className={styles.task}>
-            <input type="checkbox" />
-            <p>{task.title}</p>
+            {/* <input type="checkbox" /> */}
+            <p>- {task.title}</p>
         </div>
     );
 }

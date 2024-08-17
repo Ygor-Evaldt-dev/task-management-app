@@ -1,5 +1,5 @@
 import { v4 as uuidV4 } from "uuid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Header } from "./components/header/Header";
 import { FormCreateTask } from "./components/form-create-task/FormCreateTask";
@@ -16,20 +16,41 @@ export function App() {
     const [tasks, setTasks] = useState([] as TaskType[]);
 
     const isNoTasks = tasks.length === 0;
-
     const tasksFinished = tasks.filter(task => task.isFinished === true);
+
+    useEffect(() => {
+        const storedTasks = localStorage.getItem("tasks");
+        if (!storedTasks) return;
+
+        setTasks(JSON.parse(storedTasks));
+    }, [])
+
 
     function handleDeleteTask(id: string) {
         const tasksWithoutDeleted = tasks.filter(task => task.id !== id);
         setTasks(tasksWithoutDeleted);
+        saveTasksToLocalStorage(tasksWithoutDeleted);
     }
 
     function onCreateNewTask(title: string) {
-        setTasks([...tasks, {
-            id: uuidV4(),
-            isFinished: false,
-            title
-        }]);
+        setTasks((tasks) => {
+            const tasksWithNewTask = [
+                ...tasks,
+                {
+                    id: uuidV4(),
+                    isFinished: false,
+                    title
+                }
+            ];
+
+            saveTasksToLocalStorage(tasksWithNewTask);
+
+            return tasksWithNewTask;
+        });
+    }
+
+    function saveTasksToLocalStorage(tasks: TaskType[]) {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
     }
 
     return (

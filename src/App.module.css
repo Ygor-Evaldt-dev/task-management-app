@@ -35,3 +35,10 @@
 .tasks>ul>li>button:hover {
     color: var(--red-400);
 }
+
+@media(max-width: 768px) {
+    .main {
+        padding: 0rem 1rem 2rem 1rem;
+        gap: 6rem;
+    }
+}
