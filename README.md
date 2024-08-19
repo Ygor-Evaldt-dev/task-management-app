@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# Minhas Tarefas
+![Versão](https://img.shields.io/badge/Versão-1.0.0-blue?style=flat-square)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o Projeto
 
-Currently, two official plugins are available:
+O **Minhas Tarefas** é uma aplicação web intuitiva e eficiente desenvolvida para ajudar os usuários a gerenciar suas tarefas diárias com facilidade. Com um design simples, o aplicativo permite que você adicione, edite, e remova tarefas, tudo armazenado diretamente no seu navegador, sem a necessidade de cadastro.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto está atualmente hospedado na Vercel e pode ser acessado através deste [link](https://task-management-app-woad.vercel.app/).
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Adicionar Tarefas:** Crie novas tarefas rapidamente.
+- **Editar Tarefas:** Marque tarefas como concluídas.
+- **Excluir Tarefas:** Remova tarefas que não são mais necessárias.
+- **Armazenamento Local:** As tarefas são armazenadas no navegador, permitindo que você continue de onde parou mesmo após fechar a aplicação.
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias Utilizadas
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![CSS Modules](https://img.shields.io/badge/CSS%20Modules-000?style=for-the-badge&logo=css3&logoColor=1572B6) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) ![Phosphor Icons](https://img.shields.io/badge/Phosphor%20Icons-000000?style=for-the-badge&logo=phosphor&logoColor=white)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Vite**: Ferramenta de build extremamente rápida e moderna.
+- **TypeScript**: Superconjunto de JavaScript que adiciona tipagem estática opcional.
+- **CSS Modules**: Estilo local para componentes.
+- **Vercel**: Plataforma de hospedagem que permite deploys rápidos e fáceis.
+- **Phosphor Icons**: Conjunto flexível de ícones para interfaces.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Instalação local
+### Como Rodar o Projeto
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Para rodar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Ygor-Evaldt-dev/task-management-app.git
+   cd task-management-app
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Abra o navegador e acesse `http://localhost:5173`.
+
+## Contribuindo
+
+Contribuições são bem-vindas! Se você tiver sugestões ou melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+## Contato
+
+- [LinkedIn](https://www.linkedin.com/in/ygorevaldt/) 
+- E-mail: evaldtygor@gmail.com
