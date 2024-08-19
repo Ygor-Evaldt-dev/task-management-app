@@ -15,6 +15,7 @@ export function FormCreateTask({
     function handleCreateNewTask(event: FormEvent) {
         event.preventDefault();
         onCreateNewTask(newTaskText);
+        setNewTaskText("");
     }
 
     function handleNewTaskText(event: ChangeEvent<HTMLInputElement>) {
