@@ -18,22 +18,10 @@
 }
 
 .tasks>ul>li {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    justify-content: space-between;
     padding: 1rem;
     border-radius: 8px;
     background-color: var(--gray-400);
-}
-
-.tasks>ul>li>button {
-    background-color: transparent;
-    color: var(--gray-300);
-}
-
-.tasks>ul>li>button:hover {
-    color: var(--red-400);
+    align-items: center;
 }
 
 @media(max-width: 768px) {
