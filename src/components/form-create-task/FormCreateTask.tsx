@@ -14,6 +14,9 @@ export function FormCreateTask({
 
     function handleCreateNewTask(event: FormEvent) {
         event.preventDefault();
+
+        if (newTaskText.length === 0) return;
+
         onCreateNewTask(newTaskText);
         setNewTaskText("");
     }
@@ -29,6 +32,7 @@ export function FormCreateTask({
                 placeholder="Adicione uma nova tarefa"
                 value={newTaskText}
                 onChange={handleNewTaskText}
+                required
             />
             <button type="submit">
                 Criar
