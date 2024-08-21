@@ -1,11 +1,14 @@
 import { v4 as uuidV4 } from "uuid";
 import { useEffect, useState } from "react";
+import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 
 import { Header } from "./components/header/Header";
 import { FormCreateTask } from "./components/form-create-task/FormCreateTask";
 import { Empty } from "./components/empty/Empty";
 import { TaskListHeader } from "./components/task-list-header/TaskListHeader";
 import { Task } from "./components/task/Task";
+
+import { reorderList } from "./util/reorder-list";
 
 import { TaskType } from "./types/task.type";
 
@@ -23,6 +26,16 @@ export function App() {
 
         setTasks(JSON.parse(storedTasks));
     }, [])
+
+    function handleOnDragEnd(result: DropResult) {
+        if (!result.destination) return;
+
+        const tasksReordered = reorderList<TaskType>(tasks, result.source.index, result.destination.index);
+
+        setTasks(tasksReordered);
+        saveTasksToLocalStorage(tasksReordered);
+    }
+
 
     function onDeleteTask(id: string) {
         const tasksWithoutDeleted = tasks.filter(task => task.id !== id);
@@ -81,15 +94,39 @@ export function App() {
                     {isNoTasks ? (
                         <Empty />
                     ) : (
-                        <ul className={styles.taskList}>
-                            {tasks.map(task => {
-                                return (
-                                    <li key={task.id}>
-                                        <Task task={task} onTaskToggle={onTaskToggle} onDeleteTask={onDeleteTask} />
-                                    </li>
-                                )
-                            })}
-                        </ul>
+                        <DragDropContext onDragEnd={handleOnDragEnd}>
+                            <Droppable droppableId="taskList" type="list" direction="vertical">
+                                {(provided) => (
+                                    <ul
+                                        className={styles.taskList}
+                                        ref={provided.innerRef}
+                                        {...provided.droppableProps}
+                                    >
+                                        {tasks.map((task, index) => {
+                                            return (
+                                                <Draggable key={task.id} draggableId={task.id} index={index}>
+                                                    {(provided) => (
+                                                        <li
+                                                            key={task.id}
+                                                            ref={provided.innerRef}
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                        >
+                                                            <Task
+                                                                task={task}
+                                                                onTaskToggle={onTaskToggle}
+                                                                onDeleteTask={onDeleteTask}
+                                                            />
+                                                        </li>
+                                                    )}
+                                                </Draggable>
+                                            )
+                                        })}
+                                        {provided.placeholder}
+                                    </ul>
+                                )}
+                            </Droppable>
+                        </DragDropContext>
                     )}
                 </article>
             </main >
